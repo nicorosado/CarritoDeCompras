@@ -28,3 +28,15 @@ const mostrarProductos = (productos) => {
 
 
 mostrarProductos(productos)
+localStorage.setItem('productos', JSON.stringify(productos));
+
+function cambiarPrecio(nombre,precio){
+    let array = JSON.parse(localStorage.getItem('productos'));
+    const producto = array.find(elemento => elemento.nombre === nombre);
+    console.log(localStorage.getItem('productos'));
+    producto.precio = precio;
+    localStorage.setItem('productos', JSON.stringify(array));
+    console.log(localStorage.getItem('productos'));
+}
+
+cambiarPrecio('Correa', 2000);
