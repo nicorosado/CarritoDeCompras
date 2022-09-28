@@ -13,28 +13,23 @@ const precioTotal = document.getElementById('precioTotal')
 const cantidadTotal = document.getElementById('cantidadTotal')
 
 let carrito = []
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('carrito')){
-        carrito = JSON.parse(localStorage.getItem('carrito'))
-        actualizarCarrito()
-    }
-})
 botonVaciar.addEventListener('click', () => {
     Swal.fire({
         title: 'Quieres vaciar el carrito?',
         icon: 'warning',
         showCancelButton: true,
+        cancelButtonText: 'CANCELAR',
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'SI'
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire(
-            'El carrito esta vacio',
+            'El carrito está vacío',
             'Vuelve a llenarlo!!'
           )
-          carrito.length = 0
+          carrito = []
+          localStorage.setItem('carrito', JSON.stringify(carrito))
           actualizarCarrito()
         }
       })
@@ -63,23 +58,28 @@ stockProductos.forEach((producto) => {
 
 
 const agregarAlCarrito = (prodId) => {
-
-    const existe = carrito.some (prod => prod.id === prodId) //comprobar si el elemento ya existe en el carrito
-
+    console.log(`prodId=${prodId}`);
+    const existe = carrito.some(prod => prod.id === prodId) //comprobar si el elemento ya existe en el carrito
+    let nombreProducto = ""
     if (existe){ 
-        const prod = carrito.map (prod => { 
+        carrito = carrito.map(prod => { 
             if (prod.id === prodId){
                 prod.cantidad++
+                nombreProducto = prod.nombre
             }
+            return prod;
         })
     } else { 
         const item = stockProductos.find((prod) => prod.id === prodId)        
         carrito.push(item)
+        nombreProducto = item.nombre
     }
-    Swal.fire(
-        'Perfecto!',
-        `Se agrego el producto ${stockProductos.nombre}`,
-        'success'
+    Swal.fire({
+        title: 'Perfecto',
+        text: `Se agrego el producto ${nombreProducto}`,
+        icon: 'success',
+        confirmButtonText: 'OK'
+      }
       )
     actualizarCarrito()
 }
@@ -112,6 +112,10 @@ const actualizarCarrito = () => {
 
     })
         contadorCarrito.innerText = carrito.length
-    console.log(carrito)
     precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
 }
+
+    if (localStorage.getItem('carrito')){
+        carrito = JSON.parse(localStorage.getItem('carrito'))
+        actualizarCarrito()
+    }
