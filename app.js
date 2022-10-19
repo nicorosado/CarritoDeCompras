@@ -33,7 +33,6 @@ botonVaciar.addEventListener("click", () => {
 const traerDatos = async () => {
   const response = await fetch("./stock.json");
   data = await response.json();
-  console.log(data);
   data.forEach((producto) => {
     const div = document.createElement("div");
     div.classList.add("producto");
@@ -74,7 +73,6 @@ traerDatos();
 }); */
 
 const agregarAlCarrito = (prodId) => {
-  console.log(`prodId=${prodId}`);
   const existe = carrito.some((prod) => prod.id === prodId); //comprobar si el elemento ya existe en el carrito
   let nombreProducto = "";
   if (existe) {
@@ -105,7 +103,6 @@ const eliminarDelCarrito = (prodId) => {
 
   carrito.splice(indice, 1);
   actualizarCarrito();
-  console.log(carrito);
 };
 
 const actualizarCarrito = () => {
