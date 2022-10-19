@@ -1,4 +1,4 @@
-let carritoDeCompras = []
+/* let carritoDeCompras = []
 
 const botonVaciar = document.getElementById('vaciar-carrito')   
 botonVaciar.addEventListener('click', () => {
@@ -36,3 +36,4 @@ const carritoIndex = (productoId)=>{
 
     renderProductosCarrito()
 }
+ */

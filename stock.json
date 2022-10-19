@@ -30,5 +30,69 @@
     "cantidad": 1,
     "precio": 2000,
     "img": "./img/pipeta.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Alicate",
+    "tipo": "alicate para uñas",
+    "cantidad": 1,
+    "precio": 1900,
+    "img": "./img/alicate.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Bebedero",
+    "tipo": "bebedero para perro",
+    "cantidad": 1,
+    "precio": 3000,
+    "img": "./img/bebedero.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Cepillo",
+    "tipo": "cepillo para perro",
+    "cantidad": 1,
+    "precio": 2500,
+    "img": "./img/cepillo.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Colchoneta",
+    "tipo": "colchoneta para perro",
+    "cantidad": 1,
+    "precio": 4000,
+    "img": "./img/colchoneta.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Biscuits",
+    "tipo": "biscuit para perro",
+    "cantidad": 1,
+    "precio": 400,
+    "img": "./img/biscuits.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Bolsa",
+    "tipo": "bolsa para perro",
+    "cantidad": 1,
+    "precio": 300,
+    "img": "./img/bolsa.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Pretal",
+    "tipo": "pretal para perro",
+    "cantidad": 1,
+    "precio": 4000,
+    "img": "./img/pretal.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Shampoo",
+    "tipo": "shampoo para perro",
+    "cantidad": 1,
+    "precio": 750,
+    "img": "./img/shampoo.jpg"
   }
 ]
